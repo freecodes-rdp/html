@@ -1,7 +1,0 @@
-sudo apt update -y; sudo apt -y install tigervnc-standalone-server wget gnupg openbox neofetch kitty nemo && wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo gpg --dearmor -o /usr/share/keyrings/mozilla.gpg
-echo "deb [signed-by=/usr/share/keyrings/mozilla.gpg] https://packages.mozilla.org/apt mozilla main" | sudo tee /etc/apt/sources.list.d/mozilla.list
-echo '
-Package: *
-Pin: origin packages.mozilla.org
-Pin-Priority: 1000
-' | sudo tee /etc/apt/preferences.d/mozilla && sudo apt update -y; sudo apt install firefox -y && mkdir -p ~/.config/openbox && echo "kitty --hold -e bash $HOME/html/web &" >> ~/.config/openbox/autostart && mkdir -p ~/.vnc && printf '1\n' | vncpasswd -f > ~/.vnc/passwd && chmod 600 ~/.vnc/passwd && echo -e "#!/bin/sh\nexec openbox-session" > ~/.vnc/xstartup && chmod +x ~/.vnc/xstartup && vncserver :1 && cd ~/. && sudo echo "~/./html/run" >> ~/.bashrc && sudo echo "~/./html/online" >> ~/.bashrc && cd ~/. && sudo git clone https://github.com/novnc/noVNC.git && cd noVNC && sudo ./utils/novnc_proxy --vnc 127.0.0.1:5901 --listen localhost:8080
